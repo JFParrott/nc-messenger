@@ -2,8 +2,12 @@ const app = require('express')();
 const server = require('http').createServer(app);
 const socketio = require('socket.io');
 const io = socketio(server);
+const router = require('./router');
+
+app.use(router);
 
 io.on('connect', (socket) => {
+  console.log(socket);
   console.log('connected');
   socket.on('chat message', (message) => {
     io.emit('chat message', message);
