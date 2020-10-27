@@ -8,7 +8,7 @@ class Messenger extends React.Component {
   };
 
   render() {
-    return (
+    return ( 
       <div>
         {/* <Profile /> */}
         <Chat />
