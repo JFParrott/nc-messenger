@@ -2,7 +2,7 @@ import React from 'react';
 import ChatDisplay from './ChatDisplay';
 import InputForm from './InputForm';
 
-const Chat = () => {
+const Chat = (props) => {
   return (
     <div>
       <InputForm />
