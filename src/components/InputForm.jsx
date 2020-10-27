@@ -4,7 +4,7 @@ import socketIOClient from 'socket.io-client';
 class InputForm extends React.Component {
   state = {
     message: '',
-    user: '',
+		user: '',
     endpoint: 'http://127.0.0.1:4001',
   };
 
@@ -20,9 +20,10 @@ class InputForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { endpoint, message } = this.state;
-    const socket = socketIOClient(endpoint);
-    socket.emit('chat message', message);
+    const { endpoint, message, user } = this.state;
+		const socket = socketIOClient(endpoint);
+		const userAndMessage = [`${user}:`, message]
+    socket.emit('chat message', userAndMessage);
   };
 
   render() {
